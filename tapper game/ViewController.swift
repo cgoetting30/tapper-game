@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     
+    @IBOutlet var playbtn: UILabel!
     
+   
     var i = Int(0)
     
     @IBOutlet var label: UILabel!
@@ -20,19 +22,25 @@ class ViewController: UIViewController {
     
     @IBAction func play(sender: AnyObject) {
         
+        label.hidden = false
+        
         let numberTaps: Int32! = Int32(taps.text!)
        
         label.text = "\(numberTaps) taps left!"
+      
         
     }
     
     @IBAction func buttonTap(sender: AnyObject) {
+        
         
         let numberTaps = Int32(taps.text!)
         
         if numberTaps != nil {
         
         let tapsLeft = numberTaps! - i
+            
+            
         
         if tapsLeft > 0 {
             
@@ -53,6 +61,8 @@ class ViewController: UIViewController {
             label.text = "Please enter a number"
         }
         
+       
+        
         self.view.userInteractionEnabled = true
     
     }
@@ -62,6 +72,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    
     }
 
     override func didReceiveMemoryWarning() {
